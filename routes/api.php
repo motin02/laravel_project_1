@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
 
 Route::get('/test', function () {
     return response()->json(['message' => 'API is working!']);
@@ -10,3 +11,9 @@ Route::get('/test', function () {
 Route::get('/hello', function () {
     return response()->json(['message' => 'API is working!']);
 });
+
+//get all users
+Route::get('/users',[UsersController::class,'getUsers']);
+
+//get single users
+Route::get('/user/{$id}',[UsersController::class,'getUser']);
