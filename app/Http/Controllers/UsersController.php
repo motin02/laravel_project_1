@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
@@ -20,7 +21,11 @@ class UsersController extends Controller
     }
     //create user
     public function createUser(Request $request){
-      request()->validate( [
+
+
+
+
+      $request()->validate( [
         'role' => 'required',
         'name' => 'required',
         'email' => 'required|email|unique:users',
@@ -33,7 +38,7 @@ class UsersController extends Controller
 
      //update user
     public function updateUser(Request $request, $id){
-        request()->validate( [
+        $request()->validate([
           'role' => 'required',
           'name' => 'required',
           'email' => 'required|email|unique:users,email,'.$id,

@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
+    protected $fillable = [
+        'name', 'email', 'password','role'
+    ];
+    protected $hidden = [
+        'password',
+    ];
     public function bookings(){
         return $this->hasMany(Booking::class);
     }
